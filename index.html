@@ -18,13 +18,15 @@
             align-items: center;
             height: fit-content;
     
+            background-color: white;
+
         }
 
         .box {
             width: 95%;
+            height: fit-content;
             margin: 1em;
             padding: 1em;
-            border: 1px solid black;
 
             display: flex;
             justify-content: space-around;
@@ -32,13 +34,12 @@
 
         .text {
             width: 40%;
-            background-color: red;
 
         }
 
         .tableauPlaceholder {
-            height: fit-content;
-            width: 40%;
+            height: 50%;
+            width: 50%;
         }
 
         </style>
@@ -47,7 +48,22 @@
         <h1> Cars kill People </h1>
         <h5> Jeffrey Zhang, Joseph Liu, ... </h5>
         <div class="box">
-            <div class="text"> text The tableau image is embeded into the website </div>
+            <div class="text">
+                Car accidents are one of the leading causes of deaths in the USA especially for those under the age of XYZ. Over XYZ deaths occur every year due to the accidents. As a car centered City Atalanta car accidents are common in Atlanta. In this analysis we will looks at car accident occurenes in Atlanta over the past decade. We will explore which roads are the most dangerous and how different raod conditios effects 
+            </div>
+            <div class="text">
+                THIS IS A PLACE HOLDER WE SHOULD MAKE AN QUICK GRAPH SHOWING CAUSES OF DEATH HERE (I think car accienets are quite high)
+            </div>
+        </div>
+        <div class="box">
+            <div class="text">
+                In Atlanta car accidents are most common on large highways such as I95
+            </div>
+            <div class='tableauPlaceholder' id='viz1743543088328' style='position: relative'><noscript><a href='#'><img alt='Accidents in Atlanta ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PZ&#47;PZHFMBR2P&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;PZHFMBR2P' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PZ&#47;PZHFMBR2P&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1743543088328');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+        </div>
+        <div class="box">
+            <div class="text"> Types of weather that cause car accidents </div>
             <div class='tableauPlaceholder' id='viz1743537728582' style='position: relative'>
                 <noscript>
                     <a href='#'>
@@ -82,7 +98,6 @@
         </div>
         <script defer>
             document.querySelectorAll("div").forEach(div => {
-                console.log("HERE");
                 div.onclick = function() {
                     alert("test")
                 };
