@@ -2,17 +2,26 @@
 <html lang="en">
     <head>
         <title> CS6730 Project </title>
-         <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="style.css" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     </head>
     <body>
         <h1> Cars kill People </h1>
-        <h5> Jeffrey Zhang, Joseph Liu, ... </h5>
+        <h5> Jeffrey Zhang, Joseph Liu, Kasey Lowe, and Ethan Boos </h5>
         <div class="box">
+            <h2>Introduction</h2>
             <div class="text">
                 Car accidents are one of the leading causes of deaths in the USA especially for those under the age of XYZ. Over XYZ deaths occur every year due to the accidents. As a car centered City Atalanta car accidents are common in Atlanta. In this analysis we will looks at car accident occurenes in Atlanta over the past decade. We will explore which roads are the most dangerous and how different raod conditios effects 
             </div>
             <div class="text">
                 THIS IS A PLACE HOLDER WE SHOULD MAKE AN QUICK GRAPH SHOWING CAUSES OF DEATH HERE (I think car accienets are quite high)
+            </div>
+        </div>
+        <div class="box">
+            <h2>The Data</h2>
+            <div class="text">
+                The data for this project comes from the Georgia Department of Transportation (GDOT)'s <a href="https://gdot.aashtowaresafety.net/crash-data#/">Georgia Crash Data</a>  Dashboard, which contains information about all reported accidents in Georgia from 2019 to 2023. To make the size of the dataset more manageable, we only looked at accidents that occurred in Atlanta in 2023, which still left us with almost 35,000 data points.
             </div>
         </div>
         <div class="box">
@@ -22,6 +31,13 @@
             <div class='tableauPlaceholder' id='viz1743543088328' style='position: relative'><noscript><a href='#'><img alt='Accidents in Atlanta ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PZ&#47;PZHFMBR2P&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;PZHFMBR2P' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;PZ&#47;PZHFMBR2P&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1743543088328');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
 
         </div>
+
+        <div class="box">
+            <h2>Environmental Factors</h2>
+            <div class="text"> Environmental factors like road conditions and visibility are common concerns for drivers, and can vary seasonally due to weather changes and reduced daylight hours in winter. Plotting the amount of accidents reported under different conditions shows that the majority of accidents occur under "safe" driving conditions (dry roads and in daylight) all year round. While there is an increase in the number of accidents occuring on wet roads or in the dark in the winter / early spring months, the total number of accidents in these months is not significantly different from the number of accidents in other parts of the year. This suggests that more accidents occur under these conditions in the winter and spring simply because these conditions are more common in the winter and spring. While drivers may percieve driving in the winter as more dangerous, the number of accidents that occur in the winter / spring months seems to be about the same, so the time of year doesn't seem to have an effect on the total number of accidents. </div>
+            <div class='tableauPlaceholder' id='viz1744228665156' style='position: relative'><noscript><a href='#'><img alt='Monthly Conditions ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;67&#47;6730Project-4-9-25-Monthly-Condition&#47;MonthlyConditions&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='6730Project-4-9-25-Monthly-Condition&#47;MonthlyConditions' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;67&#47;6730Project-4-9-25-Monthly-Condition&#47;MonthlyConditions&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744228665156');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='777px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        </div>
+        
         <div class="box">
             <div class="text"> Types of weather that cause car accidents </div>
             <div class='tableauPlaceholder' id='viz1743537728582' style='position: relative'>
@@ -56,6 +72,9 @@
                     vizElement.parentNode.insertBefore(scriptElement, vizElement);               
                 </script>
         </div>
+
+        <!-- Why do we have this -->
+        <!--
         <script defer>
             document.querySelectorAll("div").forEach(div => {
                 div.onclick = function() {
@@ -63,8 +82,7 @@
                 };
             });
         </script>
+        -->
 
     </body>
 </html>
-
-
