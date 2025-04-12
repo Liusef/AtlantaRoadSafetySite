@@ -5,6 +5,24 @@
         <link rel="stylesheet" href="style.css" />
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script type="module" src="https://js.arcgis.com/embeddable-components/4.32/arcgis-embeddable-components.esm.js"></script>
+        <script>
+            const arcgis_default_zoom = (elem_id, default_center, default_scale) => {
+                let elem = document.getElementById(elem_id)
+                let config = { attributes: true };
+                let callback = (mut_list, observer) => {
+                    for (const mut of mut_list) {
+                        if (mut.type !== "attributes") { continue; }
+                        elem.setAttribute("center", default_center)
+                        elem.setAttribute("scale", default_scale)
+                        observer.disconnect()
+                        return;
+                    }
+                }
+                const observer = new MutationObserver(callback);
+                observer.observe(elem, config);
+            }
+        </script>
     </head>
     <body>
         <h1> Cars kill People </h1>
