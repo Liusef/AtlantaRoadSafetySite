@@ -6,36 +6,27 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script type="module" src="https://js.arcgis.com/embeddable-components/4.32/arcgis-embeddable-components.esm.js"></script>
-        <script>
-            const arcgis_default_zoom = (elem_id, default_center, default_scale) => {
-                let elem = document.getElementById(elem_id)
-                let config = { attributes: true };
-                let callback = (mut_list, observer) => {
-                    for (const mut of mut_list) {
-                        if (mut.type !== "attributes") { continue; }
-                        elem.setAttribute("center", default_center)
-                        elem.setAttribute("scale", default_scale)
-                        observer.disconnect()
-                        return;
-                    }
-                }
-                const observer = new MutationObserver(callback);
-                observer.observe(elem, config);
-            }
-        </script>
+        <script src="./utils.js" ></script>
     </head>
     <body>
-        <h1> Cars kill People </h1>
+        <h1> A Path to Safer Streets in Atlanta</h1>
         <h5> Jeffrey Zhang, Joseph Liu, Kasey Lowe, and Ethan Boos </h5>
         <div class="box">
             <h2>Introduction</h2>
             <div class="text">
-                Car accidents are one of the leading causes of accidental deaths in the US. Furthermore, the United States has significantly more car accidently than any other country in the world, source [OECD Data / Road Accidents](https://web.archive.org/web/20230706145327/https://data.oecd.org/transport/road-accidents.htm). Needless to say, there is work to be done in order to make the US safer.
+                In America, driving has become a fact of life. Not only does America's extreme car dependency result in hours of wasted time and elevated carbon emissions; if you do not have a personal motor vehicle, then it becomes extremely difficult to participate in society. This, coupled with cars being dangerous pieces of heavy machinery has resulted in vehicle accidents being one of the leading causes of serious injuries and deaths in the United States.
+
+                <p><p>
+                Globally, the United States is the leader in car accidents by a significant margin according to [<a href="https://web.archive.org/web/20230706145327/https://data.oecd.org/transport/road-accidents.htm">OECD Data / Road Accidents</a>], even compared to countries with significantly higher populations like China and India. Needless to say, the United States has a significant amount of work to do to make transportation safer.
+
+                <p>
+                As Atlanta residents, our group is keenly aware that Atlanta is known by its suboptimal reputation of bad traffic, reckless driving, and frequent accidents; and looking at current trends, it's looking like that reputation is here to stay. Urban sprawl and development is pushing more and more people out into the suburbs, requiring them to commute long distances to their jobs. Additionally, many companies are enforcing full Return To Office (RTO) policies which will only bring even more drivers back on metro Atlanta's already congested roadways. But even though traffic is looking to only get worse, the Georgia Department of Transportation (GDOT) and the Atlanta Department of Transportation (ATL DOT) have taken little action to alleviate congestion and increase safety for drivers and pedestrians. 
+                
+                <p>
+                In our analysis we plan to look at different factors related to car accidents to find areas that can be improved. Some factors we plan to look at include the nature of the accidents, changes in occurrences over the past decade, comparing accidents to demographic data and more. We hope that our analysis will provide insight into how bad car accidents have gotten in metro Atlanta and find ways the government could improve traffic safety and save lives.
             </div>
-            <div class="text">
-                As Atlanta residents, our group is keenly aware that Atlanta is known by its reputation of traffic, crazy driving, and frequent accidents. In this analysis we will looks at car accident occurences in Atlanta over the past decade. We seek to find trends in order to help mitigate Atlanta car accidents and help the US overall better understand why it presistently fosters more car accidents than any other country in the world.
-            </div>
-            <div class='tableauPlaceholder' id='viz17443127447160' style='position: relative'>
+
+            <div class='tableauPlaceholder' id='viz17443127447160' style='position: relative; height: 100%'>
                 <noscript>
                     <a href='#'>
                         <img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17443127447160&#47;Dashboard1&#47;1_rss.png' style='border: none' />
@@ -67,117 +58,247 @@
                 vizElement.parentNode.insertBefore(scriptElement, vizElement);
             </script>
         </div>
+
         <div class="box">
             <h2>The Data</h2>
             <div class="text">
-                The data for this project comes from the Georgia Department of Transportation (GDOT)'s <a href="https://gdot.aashtowaresafety.net/crash-data#/">Georgia Crash Data</a>  Dashboard, which contains information about all reported accidents in Georgia from 2013 to 2023.
+                <p>
+                    To analyze car accident data in the metro Atlanta area, we used a GDOT database with logs of vehicle accidents across the state of Georgia. The dataset is publicly accessible and can be found <a href="https://gdot.aashtowaresafety.net/crash-data#/">here</a>. This dataset includes all vehicle accidents that were reported to police from 2013 to 2023 and contains helpful additional metadata including the nature of the crash, where it occurred, road conditions, and more.
+                </p>
+
+                <p>
+                    We also used other supplemental datasets to compare our data against and support any claims.
+                </p>
+
+                <p>
+                    Station Entry and Exit counts were used to approximate ridership per station on MARTA for the year of 2024. This dataset was obtained through the Georgia Open Records Act. 
+                <p>
+                    Demographic and Economic information for the Atlanta metro area was obtained through the Atlanta Regional Commission (ARC) via their <a href="https://opendata.atlantaregional.com/">open data portal</a>. The data used was from 2023 and contained demographic data, split by census tract.
+                <p>
+                    As our dataset only includes accidents up to 2023, we used the Georgia Electronic Accidents Reporting Service (GEARS) to get high level statistics for vehicle accidents in 2024 and 2025. Their webpage with relevant reports can be found <a href="https://gearsportal.com/Pages/Public/Home.aspx">here</a>
             </div>
-        </div>
-        
-        <div class="box">
-            <h2>Where do crashes happen?</h2>
-            <div class="text">
-                In Atlanta, car accidents are most common on large highways.
+            <div class="tableauPlaceholder">
+                <arcgis-embedded-map style="height: 600px;max-width: 100%;" item-id="b77f1d55636b4a18a22f07dcc7582d01" theme="dark" legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
             </div>
-            <div class='tableauPlaceholder' id='viz1744393066970' style='position: relative'><noscript><a href='#'><img alt='Location Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;67&#47;6730Project-4-9-25-locational&#47;LocationDashboard&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='6730Project-4-9-25-locational&#47;LocationDashboard' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;67&#47;6730Project-4-9-25-locational&#47;LocationDashboard&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744393066970');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         </div>
 
         <div class="box">
-            <h2>Severity</h2>
+            <h2>Trends</h2>
             <div class="text">
-                <p>The Federal Highway Administration uses the KABCO scale to assess and rate the severity of collisions. In Georgia it is defined as:</p>
+                Historically, while car accidents have decreased compared to the 1980s and 90s, in the last decade car accidents have actually increased across metro Atlanta. 
+                <p>
+                <p>
+                While there has been a slight downward trend post-pandemic, data from GEARS shows that this trend may be reversing. In 2025, the Atlanta Police Department and other police departments in the metro area reported slightly more accidents in 2025 than the same time period in 2024, possibly indicating a return to vehicle accidents increasing year over year. 
+            </div>
+            <div class='tableauPlaceholder' id='viz1744326945427' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet1' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744326945427');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        </div>
+        
+        <div class="box">
+            <h2>Types of Accidents</h2>
+            <div class="text">
+                One metric that we have access to is the "type" accident that occured for each data point. We found that in Atlanta, the most common type of vehicle accident are rear ends, followed by angle crashes.
+
+                <p>
+                    Read end accidents occur when one vehicle collides with another from behind. This usually occurs when a driver is following too closely behind another vehicle or when a driver is not paying attention to their surroundings. 
+                <p>
+                    Angle crashes occur when one vehicle strikes another from the side, usually near a 90 degree angle. Another common name for these kinds of crashes are T-bone crashes. These accidents generally occur at intersections or when roads merge when neither driver is going straight. Angle crashes tend to happen more when people ignore traffic signage with regards to intersections and driving recklessly.
+                <p>
+                    While both of these accident types are exceedingly common, they can be mitigated with new laws and traffic easing measures. One example of this could be installing red light cameras at intersections to disincentivize drivers entering an intersection when they aren't allowed to, which could reduce angle crashes.
+            </div>
+            <div class='tableauPlaceholder' id='viz1744326979472' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet3' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744326979472');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        </div>
+
+        <div class="box">
+            <h2>Severity of Accidents</h2>
+            <div class="text">
+                Another metric we have access to is the "severity" of an accident using the "KABCO" rating system. The Federal Highway Administration (FHWA) uses the "KABCO" scale to assess and rate the severity of collisions. In Georgia, this scale is defined as the following:
                 <p>K - A fatal collision (causes injury that results in death within 30 days)</p>
                 <p>A - Causes a serious injury which prevents the person from performing normal activities</p>
                 <p>B - Causes a visible injury which is noticable to others at the scene</p>
                 <p>C - Causes complaints or indications of pain or but no visible injuries</p>
                 <p>O - No injuries or complaints</p>
-                <p>     </p>
-                <p>In 2023, the vast majority of reported collisions were rated O, meaning they caused no injuries to anyone involved. </p>
+
+                Out of the 34,085 accidents used to generate this distribution, 2,160 of them (about 6.3%) resulted in a visible injury of some sort, and 602 (about 1.8%) resulted in serious injury or death. The vast majority of accidents are thankfully rated as "O", meaning that the accidents did not cause injury to any parties involved.
             </div>
             <div class='tableauPlaceholder' id='viz1744392879406' style='position: relative'><noscript><a href='#'><img alt='Injury Severity Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;YD&#47;YDJ5PXQYP&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;YDJ5PXQYP' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;YD&#47;YDJ5PXQYP&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744392879406');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         </div>
-            
-        
+
         <div class="box">
-            <h2>Environmental Factors</h2>
-            <div class="text"> Environmental factors like road conditions and visibility are common concerns for drivers, and can vary seasonally due to weather changes and reduced daylight hours in winter. Plotting the amount of accidents reported under different conditions shows that the majority of accidents occur under "safe" driving conditions (dry roads and in daylight) all year round. While there is an increase in the number of accidents occuring on wet roads or in the dark in the winter / early spring months, the total number of accidents in these months is not significantly different from the number of accidents in other parts of the year. This suggests that more accidents occur under these conditions in the winter and spring simply because these conditions are more common in the winter and spring. While drivers may percieve driving in the winter as more dangerous, the number of accidents that occur in the winter / spring months seems to be about the same, so the time of year doesn't seem to have an effect on the total number of accidents. </div>
-            <div class='tableauPlaceholder' id='viz1744228665156' style='position: relative'><noscript><a href='#'><img alt='Monthly Conditions ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;67&#47;6730Project-4-9-25-Monthly-Condition&#47;MonthlyConditions&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='6730Project-4-9-25-Monthly-Condition&#47;MonthlyConditions' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;67&#47;6730Project-4-9-25-Monthly-Condition&#47;MonthlyConditions&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744228665156');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='777px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        </div>
-        
-        <div class="box">
-            <div class="text"> Types of weather that cause car accidents </div>
-            <div class='tableauPlaceholder' id='viz1743537728582' style='position: relative'>
-                <noscript>
-                    <a href='#'>
-                        <img alt='Sheet 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet2&#47;1_rss.png' style='border: none' />
-                    </a>
-                </noscript>
-                <object class='tableauViz'  style='display:none;'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F'/> 
-                    <param name='embed_code_version' value='3'/> 
-                    <param name='site_root' value=''/>
-                    <param name='name' value='project_17430006164900&#47;Sheet2'/>
-                    <param name='tabs' value='no'/>
-                    <param name='toolbar' value='yes'/>
-                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet2&#47;1.png'/>
-                    <param name='animate_transition' value='yes'/>
-                    <param name='display_static_image' value='yes'/>
-                    <param name='display_spinner' value='yes'/>
-                    <param name='display_overlay' value='yes'/>
-                    <param name='display_count' value='yes'/>
-                    <param name='language' value='en-US'/>
-                    <param name='filter' value='publish=yes'/>
-                </object>
+            <h2>Dangerous Roads</h2>
+            <div class="text">
+                From our data, we found that most accidents that are occuring in metro Atlanta are occuring on highly used roads, like freeways and wide local streets, also referred to as "artierial" roads. 
+
+                <p><p>
+                The reason for aterial roads having more accidents is likely due to a number of factors. These roads being heavily used is a contributing factor, but the design of these roads may also play a factor. Arterial roads tend to have lots of high speed traffic from a large number of vehicles. This can cause major issues with artierial roads that are not controlled access (using on and off ramps to access the road), as vehicles are likely to be regularly entering and exiting these roads at slower speeds. 
             </div>
-                <script type='text/javascript'> 
-                    var divElement = document.getElementById('viz1743537728582');   
-                    var vizElement = divElement.getElementsByTagName('object')[0];                   
-                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                   
-                    var scriptElement = document.createElement('script');                    
-                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                
-                    vizElement.parentNode.insertBefore(scriptElement, vizElement);               
+            <div class="tableauPlaceholder">
+                <arcgis-embedded-map style="height:400px;width:700px;" item-id="926a56b4c0d74f1586d28b6e586ad051" theme="dark" legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+
+
+                <div class='tableauPlaceholder' id='viz1744327032737' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet5' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744327032737');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>Driving Conditions</h2>
+            <div class="text">
+                Another factor to look at is the driving conditions when the accident occurred. Our dataset gives us two key insights into the conditions on the road: Lighting and Surface conditions.
+
+                <p><p>
+                From surface conditions, we can see that the most accidents occur on dry surfaces, which is likely due to most drivers preferring to drive on dry pavement instead of in inclement weather.
+
+                <p>
+                From lighting conditions we also see that most accidents occur during the day, probably because most drivers typically go out during the day instead of at night. However, we see that for accidents that occurred in the dark, it's roughly evenly split between accidents with street lighting and accidents without it. 
+                
+                <p>
+                From this, we can see that there is little difference between whether there is street lighting, which could mean that street lighting doesn't have much to do with whether an accident occurs. However, another way to interpret this could be that street lighting in parts of metro Atlanta isn't adequate enough to help reduce accidents.
+            </div>
+            <div class="tableauPlaceholder">
+                <div class='tableauPlaceholder' id='viz1744521473329' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet8&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet8' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet8&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744521473329');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                <div class='tableauPlaceholder' id='viz1744521504650' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet2' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744521504650');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
+        </div>
+
+        <div class="box">
+            <h2>Economic Factors</h2>
+            <div class="text">
+                This map shows a heat map of accidents in Atlanta overlaid on a map of census tracts in Georgia. The census tracts are colored based on Atlanta's median income, where blue means that the tract has a higher median, and red indicating the opposite. There are also tabs to filter data by income range (bottom 25% tracts, 25-50 percentile tracts, 50-75 percentile tracts, top 25% of tracts). 
+
+                <p> <p> 
+                From this map there are a few patterns that arise. 
+
+                <p> 
+                One such pattern is the stark divide in income between tracts in the northern part of the metro area compared to the southern part. 
+
+                <p> 
+                Another pattern is that large arterial roads tend to pass through census tracts that have lower median incomes, especially interstate freeways. This is likely due to historic reasons like urban renewal which saw many neighborhoods with non-white people demolished to construct freeways and other car infrastructure.
+            </div>
+            <div class="tableauPlaceholder" id="econ_factors_arcgis_maps">
+                <script>
+                    const econ_ids = ['all-qtrs-map', 'q1-map', 'q2-map', 'q3-map', 'q4-map']
+                    const fr_names = econ_ids
+                    generate_tabs("econ_factors_arcgis_maps", "", econ_ids, fr_names)
                 </script>
+                <div id="all-qtrs-map">
+                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="d1d4e170fb68479fb2c10eb90f0dd306" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                </div>
+                <div id="q1-map">
+                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="5505db0cc59b4886a72f0520bb99af69" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                </div>
+                <div id="q2-map">
+                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="8e16fd837e904445a131b1e97e12ffd5" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                </div>
+                <div id="q3-map">
+                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="2b2a74a7eb6940299e66ae5a5a891d7b" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                </div>
+                <div id="q4-map">
+                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="4445cd93dee9420a973b076111bf944f" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                </div>
+            </div>
         </div>
+
         <div class="box">
             <div class="text">
-            - Injuries as a result of car accident have riseen over the last couple year in Georgia rising to a peak of 36,714</div>
-            <div class='tableauPlaceholder' id='viz1744326945427' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet1' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744326945427');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                While a map of all the data is useful for exploration and searching for patterns, the amount of data presented limits its utility for data analysis. 
+                
+                <p> <p> 
+                Here is a graph of the number of the average number of serious injuries per accident, split by the income quartile of the census tract it occurred in. This visualization shows a concerning general downward trend of the likelihood of serious injuries as the median income in the area increases.
+
+                <p> 
+                This pattern may be due to many high speed and arterial roads passing through historically poorer areas as higher speed accidents tend to be more violent. However, this could also be an indication of these areas being disinvested by the city and state, as little work is being done to ease traffic and reduce severe accidents. 
+            </div>
+            <div class='tableauPlaceholder' id='viz1744500627961' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;AverageofSeriousInjuriesperAccidentsperTractbyMedianIncomeRange&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GACollisionsEconomicVisualizations&#47;AverageofSeriousInjuriesperAccidentsperTractbyMedianIncomeRange' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;AverageofSeriousInjuriesperAccidentsperTractbyMedianIncomeRange&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744500627961');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         </div>
+
         <div class="box">
-            <div class="text"> 
-            - The most common type of car crases are Rear Ends followed by Angle Crash
+            <h2>Analyzing more specific areas</h2>
+            <div class="text">
+                While previous analysis of economic factors looked at the region as a whole, it is also worth looking at more localized data, specifically in Atlanta itself. For this, I chose four areas of roughly the same size to compare the nature of accidents.
+
+                <p> <p> 
+                For my four areas, I based them off of the location and usage of MARTA rail services (Atlanta's heavy rail rapid transit). I ended up choosing the following stations and analyzed a half mile radius around them.
+                
+                <p>
+                <p> Lindbergh Center - High Investment High Ridership
+                <p> Inman Park/Reynoldstown - High Investment Low Ridership
+                <p> West End - Low Investment High Ridership
+                <p> Ashby - Low Investment Low Ridership
+                <p>
+
+                These areas are relatively close to the core of Atlanta (Downtown and Midtown) while still staying relatively suburban, with both local and arterial roads running through them. 
+
+                <p> 
+                The maps show the areas around the stations along with the locations of accidents color coded by KABCO severity.
             </div>
-            <div class='tableauPlaceholder' id='viz1744326979472' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet3' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744326979472');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        </div>
-         <div class="box">
-            <div class="text"> 
-            - Within Atlanta most car accident that result in injuries occur within fulton count
+            <div class="tableauPlaceholder" id="marta-arcgis-maps">
+                <script>
+                    const marta_ids = ['lindbergh-ctr-map', 'inman-park-map', 'west-end-map', 'ashby-map']
+                    const marta_names = marta_ids;
+                    generate_tabs("marta-arcgis-maps", "", marta_ids, marta_names)
+                </script>
+                <div id="lindbergh-ctr-map">
+                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="351378c52d9941adbc29a8ea1c5d6073" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                </div>
+                <div id="inman-park-map">
+                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="14afa8eb43204dfea75698272dc303d6" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                </div>
+                <div id="west-end-map">
+                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="bdd5d97c43da404ab3c1c8f76440e482" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                </div>
+                <div id="ashby-map">
+                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="a3d3b78273944a948bfe1c06dae64533" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                </div>
             </div>
-            <div class='tableauPlaceholder' id='viz1744327012881' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet4&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet4' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet4&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744327012881');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         </div>
-        <div class="box">
-            <div class="text"> 
-            - Types of street these car crashes occur with. I though this would go well next to the map?
-            </div>
-            <div class='tableauPlaceholder' id='viz1744327032737' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet5' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744327032737');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        </div>
+
         <div class="box">
             <div class="text">
-            - Number of collision for Each County in Atlanta
+                Comparing some statistics between these areas reveals some key insights. 
+
+                <p> <p> 
+                When we compare the number of accidents that occur in a 0.5mi radius around the station, for areas with less traffic (approximated by MARTA ridership), they both yielded similar results with only a couple dozen accidents difference. However, for heavily traveled areas, the discrepancy between the poorer and richer area reveals a large gap. Between Lindbergh Center and West End, the area around West End had nearly 30% more accidents (89) than Lindbergh Center. 
+
+                <p> 
+                We also have a comparison of the distribution of KABCO ratings for each of these areas (compared to the distribution for the entirety of metro Atlanta). Not only did the areas with lower investment have more accidents on average, this chart also shows that these areas have a lower proportion of accidents being rated as "O", meaning accidents in these areas are not only more frequent, but more dangerous as well.
+
+                <p> 
+                These differences reveal another disturbing trend in the discrepancy between vehicle safety between poorer and richer areas. This could possibly indicate that the poorer areas are being ignored by the city and aren't receiving as much help to fix infrastructure and install traffic calming structures.
             </div>
-            <div class='tableauPlaceholder' id='viz1744327059745' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet7&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet7' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet7&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744327059745');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        </div>        
-        <div class="box">
-            <div class="text"> </div>
-            <div class='tableauPlaceholder' id='viz1744329390283' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet10&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet10' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet10&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744329390283');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="tableauPlaceholder" style="display: flex; flex-direction: column; ">
+                <div class='tableauPlaceholder' id='viz1744501223910' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;NumberofAccidentsOccuringwithin0_5miRadiusofMARTAStation&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GACollisionsEconomicVisualizations&#47;NumberofAccidentsOccuringwithin0_5miRadiusofMARTAStation' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;NumberofAccidentsOccuringwithin0_5miRadiusofMARTAStation&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744501223910');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                <div class='tableauPlaceholder' id='viz1744522281986' style='position: relative'><noscript><a href='#'><img alt='Distribution of KABCO Severity near MARTA ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;DistributionofKABCOSeveritynearMARTA&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GACollisionsEconomicVisualizations&#47;DistributionofKABCOSeveritynearMARTA' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;DistributionofKABCOSeveritynearMARTA&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744522281986');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
         </div>
+
         <div class="box">
-            <div class="text"> Who owns the road in which the crash occurs. Demonsrates that alot of roads like north ave (state road) are kind of dangerous </div>
+            <h2>Road Ownership</h2>
+            <div class="text">
+                To get a better understanding of who is behind these trends, we need to look at road ownership, as different roads are controlled and maintained by different levels of the government. 
+
+                <p> <p> 
+                In this visualization, we can see that almost half of all accidents that occur are on roads that are controlled by the State, meaning the city or county have little control over how those roads are changed.
+
+                <p> 
+                While many accidents are still occurring on roads owned by metro Atlanta cities and counties, most are occuring on roads owned by GDOT. While GDOT could make the largest difference in reducing the number of accidents, ultimately governments at all levels need to put in more work to improve road safety for all.
+            </div>
             <div class='tableauPlaceholder' id='viz1744330023434' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet9&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet9' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet9&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744330023434');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         </div>
 
+        <div class="box">
+            <h2>Conclusion</h2>
+            <div class="text">
+                Atlanta has a long way to go in terms of road safety. The city is attempting to make streets safer for everybody by installing wider sidewalks and protected bike lanes, as well as implementing new policies like banning right turns on red, these measures are only the start of improving safety. 
 
-        
+                <p> <p> 
+                By looking at the data, we can see a few ways that the region could look into to improve safety. This includes installing traffic calming measures, implementing policies that disincentivize reckless driving, or even just getting drivers off the road and onto public transportation. These changes must also be implemented at all levels of government from the city to the state for the safety improvements to help as many as possible. 
+                
+                <p> 
+                We hope that the number of accidents returns to its downward trend and that fewer people suffer from vehicle accidents; but more actions need to be taken for a significant reduction in car accidents to materialize.
+
+            </div>
+        </div>
+       
 
         </body>
 </html>

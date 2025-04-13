@@ -18,11 +18,19 @@ body {
     cursor: url(car.svg);
 }
 
+p {
+    margin-bottom: 1rem;
+}
+
 h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5em;
     color: #d9534f;
     text-align: center;
+}
+
+arcgis-embedded-map {
+    max-width: 40vw;
 }
 
 .box h2,
@@ -68,9 +76,15 @@ h5 {
 
 .tableauPlaceholder {
     flex: 1 1 50%;
-    min-height: 400px;
+    min-height: 300px;
     overflow: visible;
 }
+
+.hidden {
+    display: none;
+}
+
+
 
 @media (max-width: 768px) {
     .box {
@@ -85,5 +99,9 @@ h5 {
 
     h1 {
         font-size: 2rem;
+    }
+
+    arcgis-embedded-map {
+        max-width: 100%;
     }
 }
