@@ -1,0 +1,107 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
+    padding: 2em 1em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: url(car.svg);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5em;
+    color: #d9534f;
+    text-align: center;
+}
+
+arcgis-embedded-map {
+    max-width: 40vw;
+}
+
+.box h2,
+.box h3 {
+    width: 100%;
+    font-size: 1.5rem;
+    margin-bottom: 1em;
+    color: #2c3e50;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 0.5em;
+}
+
+h5 {
+    font-size: 1rem;
+    margin-bottom: 2em;
+    font-weight: normal;
+    color: #666;
+    text-align: center;
+}
+
+.box {
+    background-color: white;
+    width: 95%;
+    max-width: 1200px;
+    height: auto;
+    margin: 1.5em auto;
+    padding: 2em;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    overflow: visible;
+    justify-content: space-between;
+    gap: 1.5em;
+}
+
+.text {
+    flex: 1 1 40%;
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.tableauPlaceholder {
+    flex: 1 1 50%;
+    min-height: 300px;
+    overflow: visible;
+}
+
+.hidden {
+    display: none;
+}
+
+
+
+@media (max-width: 768px) {
+    .box {
+        flex-direction: column;
+    }
+
+    .text,
+    .tableauPlaceholder {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    arcgis-embedded-map {
+        max-width: 100%;
+    }
+}

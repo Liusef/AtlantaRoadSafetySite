@@ -15,14 +15,14 @@ const arcgis_default_view = (elem_id, default_center, default_scale) => {
     observer.observe(elem, config);
 }
 
-const generate_tabs = (container_id, inner_container_class, elem_ids, friendly_names) => {
+const generate_tabs = (container_id, inner_container_add_classes, elem_ids, friendly_names) => {
     if (elem_ids.length !== friendly_names.length) {
         console.error("The two provided arrays have different lengths. (generate_tabs())")
     }
 
     // create container div
     const container = document.createElement("div")
-    container.setAttribute("class", "button-container")
+    container.setAttribute("class", "button-container " + inner_container_add_classes || "")
     
     // create all button elems
     const buttons = []
@@ -36,9 +36,14 @@ const generate_tabs = (container_id, inner_container_class, elem_ids, friendly_n
         button.setAttribute("class", "tab-button")
         button.addEventListener("click", () => {
                 select_tab(elem_ids, buttons, i)
-                console.log("urmom")
             }
         )
+
+        if (!i) {
+            button.setAttribute("style", "border-left: none;")
+        } else if (i == elem_ids.length - 1) {
+            button.setAttribute("style", "border-right: none;")
+        }
 
         // append buttons to container div
         container.appendChild(button)
@@ -91,10 +96,10 @@ const select_tab = (elem_id_arr, button_arr, selected_idx) => {
 
         if (i == selected_idx) {
             classes = remove_all(classes, "hidden")
-            button_classes = push_if_not_pres(button_classes, "selected_tab")
+            button_classes = push_if_not_pres(button_classes, "selected-tab")
         } else {
             classes = push_if_not_pres(classes, "hidden")
-            button_classes = remove_all(button_classes, "selected_tab")
+            button_classes = remove_all(button_classes, "selected-tab")
         }
 
         console.log(JSON.stringify(classes))

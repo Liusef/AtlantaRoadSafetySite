@@ -1,0 +1,116 @@
+.title-parallax {
+    animation-name: titleparallax;
+    animation-duration: 1ms;
+    animation-direction: alternate;
+    animation-timeline: scroll(root block);
+    animation-range: 0 150vh;
+}
+
+@keyframes titleparallax {
+    from {
+        /* transform: translateY(0) scale(1); */
+        transform: translateY(0);
+    } 
+    to {
+        /* transform: translateY(30vh) scale(70%) translateX(-15%); */
+        transform: translateY(30vh);
+    }
+}
+
+.box::before {
+    animation-name: bar-anim;
+    animation-duration: 1ms;
+    animation-direction: alternate;
+    view-timeline-name: --bar-timeline;
+    animation-timeline: --bar-timeline;
+}
+
+@keyframes bar-anim {
+    from {opacity: 0}
+    5% {
+        opacity: 0;
+        transform: translateY(4rem);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    95% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {opacity: 0; transform: translateY(-2rem);}
+}
+
+.box>h2, .box>h3 {
+    animation-name: header-anim;
+    animation-duration: 1ms;
+    animation-direction: alternate;
+    view-timeline-name: --header-timeline;
+    animation-timeline: --header-timeline;
+}
+
+@keyframes header-anim {
+    from {opacity: 0}
+    5% {
+        opacity: 0;
+        transform: translateX(-2.5rem)
+    }
+    15% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(0)
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {opacity: 0; transform: translateY(-2rem);}
+}
+
+.vis {
+    animation-name: vis-anim;
+    animation-duration: 1ms;
+    animation-direction: alternate;
+    view-timeline-name: --vis-timeline;
+    animation-timeline: --vis-timeline;
+}
+
+@keyframes vis-anim {
+    from {
+        opacity: 0;
+        transform: translateX(2rem);
+    }
+    15% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    85% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(2rem);
+    }
+}
+
+.button-container {
+    animation-name: tab-anim;
+    animation-duration: 1ms;
+    animation-direction: alternate;
+    view-timeline-name: --tab-timeline;
+    animation-timeline: --tab-timeline;
+}
+
+@keyframes tab-anim {
+    from {
+        opacity: 0;
+        transform: translateX(2rem);
+    }
+    15% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

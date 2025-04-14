@@ -9,8 +9,12 @@
         <script src="./utils.js" ></script>
     </head>
     <body>
-        <h1> A Path to Safer Streets in Atlanta</h1>
-        <h5> Jeffrey Zhang, Joseph Liu, Kasey Lowe, and Ethan Boos </h5>
+        <div class="titlecard title-parallax">
+            <div>
+                <h1>A Path to Safer Streets in Atlanta</h1>
+                <h5> Jeffrey Zhang, Joseph Liu, Kasey Lowe, and Ethan Boos </h5>
+            </div>
+        </div>
         <div class="box">
             <h2>Introduction</h2>
             <div class="text">
@@ -26,37 +30,40 @@
                 In our analysis we plan to look at different factors related to car accidents to find areas that can be improved. Some factors we plan to look at include the nature of the accidents, changes in occurrences over the past decade, comparing accidents to demographic data and more. We hope that our analysis will provide insight into how bad car accidents have gotten in metro Atlanta and find ways the government could improve traffic safety and save lives.
             </div>
 
-            <div class='tableauPlaceholder' id='viz17443127447160' style='position: relative; height: 100%'>
-                <noscript>
-                    <a href='#'>
-                        <img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17443127447160&#47;Dashboard1&#47;1_rss.png' style='border: none' />
-                    </a>
-                </noscript>
-                <object class='tableauViz'  style='display:none;'>
-                    <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
-                    <param name='embed_code_version' value='3' /> 
-                    <param name='site_root' value='' />
-                    <param name='name' value='Book1_17443127447160&#47;Dashboard1' />
-                    <param name='tabs' value='yes' />
-                    <param name='toolbar' value='yes' />
-                    <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17443127447160&#47;Dashboard1&#47;1.png' /> 
-                    <param name='animate_transition' value='yes' />
-                    <param name='display_static_image' value='yes' />
-                    <param name='display_spinner' value='yes' />
-                    <param name='display_overlay' value='yes' />
-                    <param name='display_count' value='yes' />
-                    <param name='language' value='en-US' />
-                    <param name='filter' value='publish=yes' />
-                </object>
+            <div class="vis-outer" id="viz17443127447160-out">
+                <div class='tableauPlaceholder vis' id='viz17443127447160' style='position: relative; height: 100%'>
+                    <noscript>
+                        <a href='#'>
+                            <img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17443127447160&#47;Dashboard1&#47;1_rss.png' style='border: none' />
+                        </a>
+                    </noscript>
+                    <object class='tableauViz'  style='display:none;'>
+                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                        <param name='embed_code_version' value='3' />
+                        <param name='site_root' value='' />
+                        <param name='name' value='Book1_17443127447160&#47;Dashboard1' />
+                        <param name='tabs' value='yes' />
+                        <param name='toolbar' value='yes' />
+                        <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Bo&#47;Book1_17443127447160&#47;Dashboard1&#47;1.png' />
+                        <param name='animate_transition' value='yes' />
+                        <param name='display_static_image' value='yes' />
+                        <param name='display_spinner' value='yes' />
+                        <param name='display_overlay' value='yes' />
+                        <param name='display_count' value='yes' />
+                        <param name='language' value='en-US' />
+                        <param name='filter' value='publish=yes' />
+                    </object>
+                </div>
+                <script type='text/javascript'>
+                    var divElement = document.getElementById('viz17443127447160');
+                    var vizElement = divElement.getElementsByTagName('object')[0];
+                    vizElement.style.width='100%';
+                    vizElement.style.height='100%';
+                    var scriptElement = document.createElement('script');
+                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+                    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+                </script>
             </div>
-            <script type='text/javascript'>
-                var divElement = document.getElementById('viz17443127447160');
-                var vizElement = divElement.getElementsByTagName('object')[0];
-                vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-                var scriptElement = document.createElement('script');
-                scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-                vizElement.parentNode.insertBefore(scriptElement, vizElement);
-            </script>
         </div>
 
         <div class="box">
@@ -75,10 +82,10 @@
                 <p>
                     Demographic and Economic information for the Atlanta metro area was obtained through the Atlanta Regional Commission (ARC) via their <a href="https://opendata.atlantaregional.com/">open data portal</a>. The data used was from 2023 and contained demographic data, split by census tract.
                 <p>
-                    As our dataset only includes accidents up to 2023, we used the Georgia Electronic Accidents Reporting Service (GEARS) to get high level statistics for vehicle accidents in 2024 and 2025. Their webpage with relevant reports can be found <a href="https://gearsportal.com/Pages/Public/Home.aspx">here</a>
+                    As our dataset only includes accidents up to 2023, we used the Georgia Electronic Accidents Reporting Service (GEARS) to get high level statistics for vehicle accidents in 2024 and 2025. Their webpage with relevant reports can be found <a href="https://gearsportal.com/Pages/Public/Home.aspx">here</a>.
             </div>
-            <div class="tableauPlaceholder">
-                <arcgis-embedded-map style="height: 600px;max-width: 100%;" item-id="b77f1d55636b4a18a22f07dcc7582d01" theme="dark" legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+            <div class="vis-outer">
+                <arcgis-embedded-map class="vis" style="height: 600px;max-width: 100%;" item-id="b77f1d55636b4a18a22f07dcc7582d01" theme="dark" legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
             </div>
         </div>
 
@@ -90,7 +97,9 @@
                 <p>
                 While there has been a slight downward trend post-pandemic, data from GEARS shows that this trend may be reversing. In 2025, the Atlanta Police Department and other police departments in the metro area reported slightly more accidents in 2025 than the same time period in 2024, possibly indicating a return to vehicle accidents increasing year over year. 
             </div>
-            <div class='tableauPlaceholder' id='viz1744326945427' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet1' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744326945427');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="vis-outer">
+                <div class='tableauPlaceholder vis' id='viz1744326945427' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet1' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744326945427');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
         </div>
         
         <div class="box">
@@ -105,22 +114,27 @@
                 <p>
                     While both of these accident types are exceedingly common, they can be mitigated with new laws and traffic easing measures. One example of this could be installing red light cameras at intersections to disincentivize drivers entering an intersection when they aren't allowed to, which could reduce angle crashes.
             </div>
-            <div class='tableauPlaceholder' id='viz1744326979472' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet3' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744326979472');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="vis-outer">
+                <div class='tableauPlaceholder vis' id='viz1744326979472' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet3&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet3' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet3&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744326979472');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
         </div>
 
         <div class="box">
             <h2>Severity of Accidents</h2>
             <div class="text">
                 Another metric we have access to is the "severity" of an accident using the "KABCO" rating system. The Federal Highway Administration (FHWA) uses the "KABCO" scale to assess and rate the severity of collisions. In Georgia, this scale is defined as the following:
-                <p>K - A fatal collision (causes injury that results in death within 30 days)</p>
-                <p>A - Causes a serious injury which prevents the person from performing normal activities</p>
-                <p>B - Causes a visible injury which is noticable to others at the scene</p>
-                <p>C - Causes complaints or indications of pain or but no visible injuries</p>
-                <p>O - No injuries or complaints</p>
+                <p class="kabco-bullet" style="background: #e4301b;">K</p> A fatal collision (causes injury that results in death within 30 days)
+                <p class="kabco-bullet" style="background: #febd34; color: var(--secondary-bg)">A</p> Causes a serious injury which prevents the person from performing normal activities
+                <p class="kabco-bullet" style="background: #9a5b96;">B</p> Causes a visible injury which is noticable to others at the scene
+                <p class="kabco-bullet" style="background: #1c9ccb;">C</p> Causes complaints or indications of pain or but no visible injuries
+                <p class="kabco-bullet" style="background: #68b39f; color: var(--secondary-bg)">O</p> No injuries or complaints
 
+                <p style="margin-top: 3rem;">
                 Out of the 34,085 accidents used to generate this distribution, 2,160 of them (about 6.3%) resulted in a visible injury of some sort, and 602 (about 1.8%) resulted in serious injury or death. The vast majority of accidents are thankfully rated as "O", meaning that the accidents did not cause injury to any parties involved.
             </div>
-            <div class='tableauPlaceholder' id='viz1744392879406' style='position: relative'><noscript><a href='#'><img alt='Injury Severity Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;YD&#47;YDJ5PXQYP&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;YDJ5PXQYP' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;YD&#47;YDJ5PXQYP&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744392879406');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="vis-outer">
+                <div class='tableauPlaceholder vis' id='viz1744392879406' style='position: relative'><noscript><a href='#'><img alt='Injury Severity Dashboard ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;YD&#47;YDJ5PXQYP&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='path' value='shared&#47;YDJ5PXQYP' /> <param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;YD&#47;YDJ5PXQYP&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744392879406');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*1)+'px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
         </div>
 
         <div class="box">
@@ -130,12 +144,15 @@
 
                 <p><p>
                 The reason for aterial roads having more accidents is likely due to a number of factors. These roads being heavily used is a contributing factor, but the design of these roads may also play a factor. Arterial roads tend to have lots of high speed traffic from a large number of vehicles. This can cause major issues with artierial roads that are not controlled access (using on and off ramps to access the road), as vehicles are likely to be regularly entering and exiting these roads at slower speeds. 
+
+                <p>
+                The main ways to make arterial roads safer are to install traffic calming structures and to improve the flow of vehicles through these corridors. Installing medians and planting trees help drivers get a better feel for how fast they are going and tends to make drivers drive more safely. Putting these arterials on a so called "road diet" and reducing lanes can also incentivize drivers to drive more safely and to find other means to get to their destination (ie. driving on other roads, using public transport).
             </div>
-            <div class="tableauPlaceholder">
-                <arcgis-embedded-map style="height:400px;width:700px;" item-id="926a56b4c0d74f1586d28b6e586ad051" theme="dark" legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
-
-
-                <div class='tableauPlaceholder' id='viz1744327032737' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet5' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744327032737');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="vis-outer">
+                <div class="vis-inner">
+                    <arcgis-embedded-map class="vis" style="width: 100%; height: 450px" item-id="926a56b4c0d74f1586d28b6e586ad051" theme="dark" legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <div class='tableauPlaceholder vis' id='viz1744327032737' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet5' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744327032737');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.5)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
             </div>
         </div>
 
@@ -153,10 +170,11 @@
                 <p>
                 From this, we can see that there is little difference between whether there is street lighting, which could mean that street lighting doesn't have much to do with whether an accident occurs. However, another way to interpret this could be that street lighting in parts of metro Atlanta isn't adequate enough to help reduce accidents.
             </div>
-            <div class="tableauPlaceholder">
-                <div class='tableauPlaceholder' id='viz1744521473329' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet8&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet8' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet8&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744521473329');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-                <div class='tableauPlaceholder' id='viz1744521504650' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet2' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744521504650');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-            </div>
+            <div class="vis-outer">
+                <div class="vis-inner">
+                    <div class='tableauPlaceholder vis' id='viz1744521473329' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet8&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet8' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet8&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744521473329');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    <div class='tableauPlaceholder vis' id='viz1744521504650' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet2' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744521504650');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div></div>
         </div>
 
         <div class="box">
@@ -173,26 +191,26 @@
                 <p> 
                 Another pattern is that large arterial roads tend to pass through census tracts that have lower median incomes, especially interstate freeways. This is likely due to historic reasons like urban renewal which saw many neighborhoods with non-white people demolished to construct freeways and other car infrastructure.
             </div>
-            <div class="tableauPlaceholder" id="econ_factors_arcgis_maps">
+            <div class="vis-outer" id="econ_factors_arcgis_maps">
                 <script>
                     const econ_ids = ['all-qtrs-map', 'q1-map', 'q2-map', 'q3-map', 'q4-map']
-                    const fr_names = econ_ids
+                    const fr_names = ['All', 'Bottom 25%', '25-50%', '50-75%', 'Top 25%']
                     generate_tabs("econ_factors_arcgis_maps", "", econ_ids, fr_names)
                 </script>
                 <div id="all-qtrs-map">
-                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="d1d4e170fb68479fb2c10eb90f0dd306" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <arcgis-embedded-map class="vis" style="height:600px;width:600px;min-width:100%;" item-id="d1d4e170fb68479fb2c10eb90f0dd306" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
                 </div>
                 <div id="q1-map">
-                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="5505db0cc59b4886a72f0520bb99af69" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <arcgis-embedded-map class="vis" style="height:600px;width:600px;min-width:100%;" item-id="5505db0cc59b4886a72f0520bb99af69" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
                 </div>
                 <div id="q2-map">
-                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="8e16fd837e904445a131b1e97e12ffd5" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <arcgis-embedded-map class="vis" style="height:600px;width:600px;min-width:100%;" item-id="8e16fd837e904445a131b1e97e12ffd5" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
                 </div>
                 <div id="q3-map">
-                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="2b2a74a7eb6940299e66ae5a5a891d7b" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <arcgis-embedded-map class="vis" style="height:600px;width:600px;min-width:100%;" item-id="2b2a74a7eb6940299e66ae5a5a891d7b" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
                 </div>
                 <div id="q4-map">
-                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="4445cd93dee9420a973b076111bf944f" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <arcgis-embedded-map class="vis" style="height:600px;width:600px;min-width:100%;" item-id="4445cd93dee9420a973b076111bf944f" theme="dark" heading-enabled legend-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
                 </div>
             </div>
         </div>
@@ -207,7 +225,9 @@
                 <p> 
                 This pattern may be due to many high speed and arterial roads passing through historically poorer areas as higher speed accidents tend to be more violent. However, this could also be an indication of these areas being disinvested by the city and state, as little work is being done to ease traffic and reduce severe accidents. 
             </div>
-            <div class='tableauPlaceholder' id='viz1744500627961' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;AverageofSeriousInjuriesperAccidentsperTractbyMedianIncomeRange&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GACollisionsEconomicVisualizations&#47;AverageofSeriousInjuriesperAccidentsperTractbyMedianIncomeRange' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;AverageofSeriousInjuriesperAccidentsperTractbyMedianIncomeRange&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744500627961');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="vis-outer">
+                <div class='tableauPlaceholder vis' id='viz1744500627961' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;AverageofSeriousInjuriesperAccidentsperTractbyMedianIncomeRange&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GACollisionsEconomicVisualizations&#47;AverageofSeriousInjuriesperAccidentsperTractbyMedianIncomeRange' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;AverageofSeriousInjuriesperAccidentsperTractbyMedianIncomeRange&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744500627961');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
         </div>
 
         <div class="box">
@@ -219,10 +239,10 @@
                 For my four areas, I based them off of the location and usage of MARTA rail services (Atlanta's heavy rail rapid transit). I ended up choosing the following stations and analyzed a half mile radius around them.
                 
                 <p>
-                <p> Lindbergh Center - High Investment High Ridership
-                <p> Inman Park/Reynoldstown - High Investment Low Ridership
-                <p> West End - Low Investment High Ridership
-                <p> Ashby - Low Investment Low Ridership
+                <p> <strong>Lindbergh Center</strong> — High Investment High Ridership
+                <p> <strong>Inman Park/Reynoldstown</strong> — High Investment Low Ridership
+                <p> <strong>West End</strong> — Low Investment High Ridership
+                <p> <strong>Ashby</strong> — Low Investment Low Ridership
                 <p>
 
                 These areas are relatively close to the core of Atlanta (Downtown and Midtown) while still staying relatively suburban, with both local and arterial roads running through them. 
@@ -230,23 +250,23 @@
                 <p> 
                 The maps show the areas around the stations along with the locations of accidents color coded by KABCO severity.
             </div>
-            <div class="tableauPlaceholder" id="marta-arcgis-maps">
+            <div class="vis-outer" id="marta-arcgis-maps">
                 <script>
                     const marta_ids = ['lindbergh-ctr-map', 'inman-park-map', 'west-end-map', 'ashby-map']
-                    const marta_names = marta_ids;
+                    const marta_names = ['Lindbergh Center', 'Inman Park', 'West End', 'Ashby'];
                     generate_tabs("marta-arcgis-maps", "", marta_ids, marta_names)
                 </script>
                 <div id="lindbergh-ctr-map">
-                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="351378c52d9941adbc29a8ea1c5d6073" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <arcgis-embedded-map class="vis" style="height:600px;width:600px;min-width:100%;" item-id="351378c52d9941adbc29a8ea1c5d6073" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
                 </div>
                 <div id="inman-park-map">
-                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="14afa8eb43204dfea75698272dc303d6" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <arcgis-embedded-map class="vis" style="height:600px;width:600px;min-width:100%;" item-id="14afa8eb43204dfea75698272dc303d6" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
                 </div>
                 <div id="west-end-map">
-                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="bdd5d97c43da404ab3c1c8f76440e482" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <arcgis-embedded-map class="vis" style="height:600px;width:600px;min-width:100%;" item-id="bdd5d97c43da404ab3c1c8f76440e482" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
                 </div>
                 <div id="ashby-map">
-                    <arcgis-embedded-map style="height:600px;width:700px;" item-id="a3d3b78273944a948bfe1c06dae64533" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
+                    <arcgis-embedded-map class="vis" style="height:600px;width:600px;min-width:100%;" item-id="a3d3b78273944a948bfe1c06dae64533" theme="dark" heading-enabled legend-enabled share-enabled portal-url="https://gtmaps.maps.arcgis.com" ></arcgis-embedded-map>
                 </div>
             </div>
         </div>
@@ -264,10 +284,11 @@
                 <p> 
                 These differences reveal another disturbing trend in the discrepancy between vehicle safety between poorer and richer areas. This could possibly indicate that the poorer areas are being ignored by the city and aren't receiving as much help to fix infrastructure and install traffic calming structures.
             </div>
-            <div class="tableauPlaceholder" style="display: flex; flex-direction: column; ">
-                <div class='tableauPlaceholder' id='viz1744501223910' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;NumberofAccidentsOccuringwithin0_5miRadiusofMARTAStation&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GACollisionsEconomicVisualizations&#47;NumberofAccidentsOccuringwithin0_5miRadiusofMARTAStation' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;NumberofAccidentsOccuringwithin0_5miRadiusofMARTAStation&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744501223910');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-
-                <div class='tableauPlaceholder' id='viz1744522281986' style='position: relative'><noscript><a href='#'><img alt='Distribution of KABCO Severity near MARTA ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;DistributionofKABCOSeveritynearMARTA&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GACollisionsEconomicVisualizations&#47;DistributionofKABCOSeveritynearMARTA' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;DistributionofKABCOSeveritynearMARTA&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744522281986');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="vis-outer">
+                <div class="vis-inner" style="display: flex; flex-direction: column; ">
+                    <div class='tableauPlaceholder vis' id='viz1744501223910' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;NumberofAccidentsOccuringwithin0_5miRadiusofMARTAStation&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GACollisionsEconomicVisualizations&#47;NumberofAccidentsOccuringwithin0_5miRadiusofMARTAStation' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;NumberofAccidentsOccuringwithin0_5miRadiusofMARTAStation&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744501223910');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    <div class='tableauPlaceholder vis' id='viz1744522281986' style='position: relative'><noscript><a href='#'><img alt='Distribution of KABCO Severity near MARTA ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;DistributionofKABCOSeveritynearMARTA&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GACollisionsEconomicVisualizations&#47;DistributionofKABCOSeveritynearMARTA' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;GA&#47;GACollisionsEconomicVisualizations&#47;DistributionofKABCOSeveritynearMARTA&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744522281986');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </div>
             </div>
         </div>
 
@@ -282,7 +303,9 @@
                 <p> 
                 While many accidents are still occurring on roads owned by metro Atlanta cities and counties, most are occuring on roads owned by GDOT. While GDOT could make the largest difference in reducing the number of accidents, ultimately governments at all levels need to put in more work to improve road safety for all.
             </div>
-            <div class='tableauPlaceholder' id='viz1744330023434' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet9&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet9' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet9&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744330023434');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="vis-outer">
+                <div class='tableauPlaceholder vis' id='viz1744330023434' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet9&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='project_17430006164900&#47;Sheet9' /><param name='tabs' value='yes' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;pr&#47;project_17430006164900&#47;Sheet9&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1744330023434');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </div>
         </div>
 
         <div class="box">
