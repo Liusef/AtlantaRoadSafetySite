@@ -85,7 +85,7 @@ h1 {
 }
 
 h5 {
-    font-size: 1rem;
+    font-size: 1.5rem;
     margin-bottom: 2em;
     font-weight: normal;
     color: var(--subtext-color);
@@ -100,6 +100,34 @@ h5 {
     text-align: left;
     min-height: 100vh;
     
+}
+
+.title-bg-outer {
+    position: relative;
+    width: 100vw;
+    margin-top: -3rem;
+}
+
+.title-bg-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.title-bg-inner-back {
+    background: url("/assets/bg.jpg");
+    background-size: cover;
+    opacity: 0.5;
+    filter: blur(4px);
+    z-index: -2;
+}
+
+.title-bg-inner-front {
+    background: linear-gradient(0deg,var(--page-bg) 0%, #00000000 100%);
+    transform: translateY(5vh);
+    z-index: -1;
 }
 
 .box::before {
@@ -126,10 +154,6 @@ h5 {
     font-size: 1rem;
     color: var(--text-color);
     line-height: 1.5;
-}
-
-arcgis-embedded-map {
-
 }
 
 .vis-outer {
